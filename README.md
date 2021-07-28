@@ -11,6 +11,9 @@ The current cost of treating wounds in the U.S. is ~$25 billion per year. Infect
 ### Data Understanding 
 The dataset consists of over 1200 images. There are two classes: Infection and No Infection. The two classes are roughly equally represented in the overall dataset -- there are around 610 images in each class. The Infection class is made up of wounds with varying degrees of infection. Around 50% of the No Infection class contains images of cuts, scrapes and scabs and the other 50% is images of healthy skin with no wound. This data was collected by scraping google images. Additionally, several images are from the [Medetec Wound Database](http://www.medetec.co.uk/files/medetec-image-databases.html)
 
+**Infection Example**
+
+
 ### Methods
 * Preliminary data cleaning, exploratory data analysis and feature engineering to identify and create features that will generate accurate predictions
 * scaling and fitting data to multiple classification models using pipelines  
