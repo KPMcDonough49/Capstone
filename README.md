@@ -11,20 +11,26 @@ The current cost of treating wounds in the U.S. is ~$25 billion per year. Infect
 ### Data Understanding 
 The dataset consists of over 1200 images. There are two classes: Infection and No Infection. The two classes are roughly equally represented in the overall dataset -- there are around 610 images in each class. The Infection class is made up of wounds with varying degrees of infection. Around 50% of the No Infection class contains images of cuts, scrapes and scabs and the other 50% is images of healthy skin with no wound. This data was collected by scraping google images. Additionally, several images are from the [Medetec Wound Database](http://www.medetec.co.uk/files/medetec-image-databases.html). Below is an example of an image used for each class. 
 
-**Example of Infection**
+**Example of Infection:**
 
 ![Infection](Images/Infection_example.png)
 
-**Example of No Infection**
+**Example of No Infection:**
 
 ![Infection](Images/No_infection_example.png)
 
 
 ### Methods
-* Preliminary data cleaning, exploratory data analysis and feature engineering to identify and create features that will generate accurate predictions
-* scaling and fitting data to multiple classification models using pipelines  
-* Evaluating model performance using selected metrics and tuning hyperparameters to maximize accuracy and micro-precision 
-* Selecting final model and creating predictions for testing data
+* Data collection using Jupyter, Python and Google Images
+* Preprocessing techniques such as data augmentation, rescaling, and performing a train-test split   
+* Model building using Keras and Google Colab 
+* Model evaluation using seaborn, sklearn and Matplotlib
+* Selecting final model and creating predictions for validation data
+* Deployment using Heroku and Streamlit. 
+
+The image below gives an overview of the steps taken in the project: 
+
+![Methods](Images/Methods.png)
 
 ### Exploratory Data Analysis and Feature Engineering 
 ![Classes](images/outcome_classes.png)
