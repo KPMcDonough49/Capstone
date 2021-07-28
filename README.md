@@ -6,7 +6,9 @@
 This project analyzes over 1200 images of infected wounds, non-infected wounds and healthy skin. Using these images, as well as image generation techniques such as data augmentation, a convolutional neural network was constructed in order to predict the likelihood of a wound being infected. The model was then deployed on a Steamlit app, allowing a user to upload an image at their convenience. 
 
 ### Business Problem / Use Case 
-The current cost of treating wounds in the U.S. is ~$25 billion per year. Infections represent a large proportion of this, and if an infection is not detected early it can lead to significant economic and human costs. Due to potential barriers to seeing a doctor, such as expensive bills and inability to travel, patients with wounds who are in need of care occasionally put off doctor's appointments. Deploying a image classification app to screen patients would help solve these issues by allowing patients to upload images from the convenience of their home at no cost. The app would then let them know if they need to see a doctor. An additional benefit is that, by screening out patients with a low probability of infection, the app would also save doctors time by allowing them to focus on patients that are truly at risk. 
+The current cost of treating wounds in the U.S. is ~$25 billion per year. Infections represent a large proportion of this, and if an infection is not detected early it can lead to significant economic and human costs. Due to potential barriers to seeing a doctor, such as expensive bills and inability to travel, patients with wounds who are in need of care occasionally put off doctor's appointments. Deploying a image classification app to screen patients would help solve these issues by allowing patients to upload images from the convenience of their home at no cost. The app would then let them know if they need to see a doctor. An additional benefit is that, by screening out patients with a low probability of infection, the app would also save doctors time by allowing them to focus on patients that are truly at risk. Below, I've highlighted some of the advantages of using a CNN for infection detection: 
+
+![Infection](Images/Use_case.png)
 
 ### Data Understanding 
 The dataset consists of over 1200 images. There are two classes: Infection and No Infection. The two classes are roughly equally represented in the overall dataset -- there are around 610 images in each class. The Infection class is made up of wounds with varying degrees of infection. Around 50% of the No Infection class contains images of cuts, scrapes and scabs and the other 50% is images of healthy skin with no wound. This data was collected by scraping google images. Additionally, several images are from the [Medetec Wound Database](http://www.medetec.co.uk/files/medetec-image-databases.html). Below is an example of an image used for each class. 
@@ -22,7 +24,7 @@ The dataset consists of over 1200 images. There are two classes: Infection and N
 
 ### Methods
 * Data collection using Jupyter, Python and Google Images
-* Preprocessing techniques such as data augmentation, rescaling, and performing a train-test split   
+* Preprocessing techniques such as data augmentation, rescaling, and performing a train-test split  
 * Model building using Keras and Google Colab 
 * Model evaluation using seaborn, sklearn and Matplotlib
 * Selecting final model and creating predictions for validation data
@@ -32,35 +34,19 @@ The image below gives an overview of the steps taken in the project:
 
 ![Methods](Images/Methods.png)
 
-### Exploratory Data Analysis and Feature Engineering 
-![Classes](images/outcome_classes.png)
-
-The chart above shows us the counts for each over our target classes. We have a bit of a class imbalance issue in that "functional needs repair" is a small percentage of the dataset. Knowing this, we will use resampling methods when creating our model. 
-
-We created a column called "age" that takes the "date_recorded" column and subtracts the "construction_year" column and graphing this showed us that non functional wells tended to be older. Because there was a lot of data points missing in the "construction_year columns, we also created a new column which binned age into decades and created an "unknown" category for missing values. In order to visualize the relationship between different numerical and categorical variables with our target variable, we created a dashboard that allowed us to select different features via dropdown.
-
-![Dashboard](images/dashboard_output.png)
-
-The image above shows the output of the dashboard. On the left is a dropdown for categorical features and on the right is a dropdown for numerical features. For the categorical features, we showed the percentage breakdown of each status group on a horizontal barchart. For numerical variables, we created a boxplot that shows status group versus the selected variable. In the boxplot above, we are showing our engineered "age" feature. The categorical variable currently shown is "water_quality." Looking at that chart, you can see that a high percentage of fluoride wells are functional, whereas, if water quality is unknown, a higher percentage are non functional. 
-
-We also mapped the locations for functional and non functional wells using folium and noticed that geography is an important feature. We have several geographical features such as latitude, longitude and region. The map below shows where the functional and non functional wells are located. We have circled areas in which we noticed areas where there appear to be many more non functional wells than functional wells. cmparison 
-
-![Map Comparison](images/comparison_maps.png)
 
 ### Model Creation and Evaluation  
 
-After preprocessing our data, we created a dummy matrix in which our model predicts "functional" (the majority class) for every well. The confusion matrix below shows the output of predictions for that model. 
+After preprocessing our data, I created an initial CNN model. The model trained on 75% of the images and used the remaining 25% for validation. The initial model only achieved an accuracy of .53 on the validation set. I realized that more data was necessary, so I used data augmentation to triple the training set to ~2500 images by performing rotations and shifts. Due to computational complexity, I used google Colab for the next model. I also decreased batch size and increased the number of epochs to 50. The chart below shows the training and validation accuracy for the resulting model: 
 
-![Dummy](images/dummy_matrix.png)
+![Confusion Matrix](Images/best_model_accuracy.png)
 
-Next we created several classification models and evaluated accuracy using cross-validation. The models we tested and there corresponding accuracy scores are listed below:
+Below is the confusion matrix for the epoch that had the best weights 
 
-* Logistic Regression, accuracy: .73 
-* Decision Tree Classifier, accuracy: .75
-* **Random Forest Classifier, accuracy: .79**
-* K-Nearest Neighbors, accuracy: .76
-* Support Vector Machines, accuracy: .77
-* **XGBoost, accuracy: .79** 
+![Confusion Matrix](Images/confusion_matrix.png)
+
+The validation accuracy has increased from .53 to ~.905. Additionally, the false negative rate (instances in which an infection is classified as not infected) dropped to ~4%. 
+
 
 Because our Random Forest model and XGBoost model had the highest accuracy scores, we decided to select these to use moving forward. Next, we wanted to see which models did the best job of maximizing functional precision. In this scenario, we do not want our model to predict wells as "functional" when they are not. In this scenario, people would lack access to water because the well isn't working and we aren't doing anything to remedy the situation due to the fact that our model predicted that there was nothing wrong with the well. 
 
