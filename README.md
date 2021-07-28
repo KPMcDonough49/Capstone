@@ -53,7 +53,7 @@ The validation accuracy has increased from .53 to ~.905. Additionally, the false
 
 #### Model Ouput on Example Images
 
-I fed the image below into the model and it predicted infection with 98% confidence and no infection with 2% confidence. 
+I fed the image below into the model and it predicted infection with 98% confidence and no infection with 2% confidence. Apologies for the unsettling image.
 
 ![Infected Hand](Images/Infection_Example.jpg)
 
