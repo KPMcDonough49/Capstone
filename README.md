@@ -80,7 +80,7 @@ A CNN can be a valuable tool used in infection detection. With a small dataset, 
 
 ### For More Information:
 Please review our full analysis in our [Final Notebook](./Technical Notebook.ipynb), our [Images](./Images), our [Presentation](./final_presentation_phase_3.pdf)   
-and our [Dashboard Code](./working_notebooks/dashboard_code.py). 
+and our [Dashboard Code](./Streamlit.py). 
 
 For any additional questions, please contact Kevin McDonough
 
