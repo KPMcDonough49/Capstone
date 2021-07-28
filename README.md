@@ -37,7 +37,11 @@ The image below gives an overview of the steps taken in the project:
 
 ### Model Creation and Evaluation  
 
-After preprocessing our data, I created an initial CNN model. The model trained on 75% of the images and used the remaining 25% for validation. The initial model only achieved an accuracy of .53 on the validation set. I realized that more data was necessary, so I used data augmentation to triple the training set to ~2500 images by performing rotations and shifts. Due to computational complexity, I used google Colab for the next model. I also decreased batch size and increased the number of epochs to 50. The chart below shows the training and validation accuracy for the resulting model: 
+After preprocessing our data, I created an initial CNN model. The model trained on 75% of the images and used the remaining 25% for validation. The initial model only achieved an accuracy of .53 on the validation set. 
+
+#### Best Model 
+
+I realized that more data was necessary, so I used data augmentation to triple the training set to ~2500 images by performing rotations and shifts. Due to computational complexity, I used google Colab for the next model. I also decreased batch size and increased the number of epochs to 50. The chart below shows the training and validation accuracy for the resulting model: 
 
 ![Confusion Matrix](Images/best_model_accuracy.png)
 
