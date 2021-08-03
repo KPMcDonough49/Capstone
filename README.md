@@ -55,7 +55,7 @@ The validation accuracy has increased from .53 to ~.905. Additionally, the false
 
 I fed the image below into the model and it predicted infection with 98% confidence and no infection with 2% confidence. Apologies for the unsettling image.
 
-![Infected Hand](Images/Infection_Example.jpg)
+![Infected Hand](Images/infected_hand.png)
 
 I then used LIME (Local Interpretable Model-agnostic Explanations) to identify the parts of the image that caused it to make the prediction it did. LIME essentially creates mini-images within the original image which it feeds into the model. It then allows you to evaluate the areas of the image that the model was keying in on, and block out the areas that were not as important. Below is an example of the output I got on the infected hand image after using this technique. 
 
@@ -79,8 +79,8 @@ A CNN can be a valuable tool used in infection detection. With a small dataset, 
 **Launch App** Embed within patient portals such as MyChart so Dr. receives alert and uploaded images. 
 
 ### For More Information:
-Please review our full analysis in our [Final Notebook](./Technical Notebook.ipynb), our [Images](./Images), our [Presentation](./final_presentation_phase_3.pdf)   
-and our [Dashboard Code](./Streamlit.py). 
+Please review our full analysis in our [Images](./Images), our [Presentation](capstone_project_7.28.pdf)   
+and our [Streamlit Code](./Streamlit.py). 
 
 For any additional questions, please contact Kevin McDonough
 
