@@ -6,6 +6,7 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.keras.models import load_model
 from tensorflow.keras import preprocessing
+from tensorflow.keras.preprocessing.image import load_img
 import time
 fig = plt.figure()
 
@@ -34,7 +35,7 @@ def main():
                 st.write(predictions)
 
 def predict(image):
-    classifier_model = '/Users/kevinmcdonough/Documents/Flatiron/capstone/project/Capstone/weights.best.h5'
+    classifier_model = '/Users/kevinmcdonough/Documents/Flatiron/capstone/project/Capstone/my_model.h5'
     model = load_model(classifier_model)
     test_image = image.resize((300,300))
     img_array = np.array(test_image).astype('float32')/255
@@ -44,15 +45,11 @@ def predict(image):
           'Infection',
           'No Infection']
     predictions = model.predict(img_array)
-    scores = tf.nn.softmax(predictions[0])
-    scores = scores.numpy()
-    results = {
-          'Infection': 0,
-          'No Infection': 0,
-}
+    classification = np.argmax(predictions, axis=-1)
+    class_index = int(classification)
+    pred_percentage = predictions[0][class_index]
+    result = f"{class_names[class_index]} with a { (100 * pred_percentage).round(2) } % confidence." 
 
-    
-    result = f"{class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) } % confidence." 
     return result
 
 if __name__ == "__main__":
