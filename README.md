@@ -90,4 +90,4 @@ For any additional questions, please contact me here:
 
 Email: kpmcdonough@gmail.com. 
 Github: https://github.com/KPMcDonough49. 
-Linkedin: https://www.linkedin.com/in/kevin-mcdonough-01466a178/
+Linkedin: https://www.linkedin.com/in/kevin-mcdonough-01466a178/. 
