@@ -74,21 +74,20 @@ A CNN can be a valuable tool used in infection detection. With a small dataset, 
 
 ### Next Steps
 
-**Gather More Data** Partner with providers to obtain larger dataset with medically reviewed labels.
+**Gather More Data:** Partner with providers to obtain larger dataset with medically reviewed labels.
 
-**Add Classes** Create more nuanced classes for infection types and healing stages.
+**Add Classes:** Create more nuanced classes for infection types and healing stages.
 
-**Tweak Model** Continue to tune parameters with an eye on minimizing false negatives.
+**Tweak Model:** Continue to tune parameters with an eye on minimizing false negatives.
 
-**Launch App** Embed within patient portals such as MyChart so Dr. receives alert and uploaded images. 
+**Launch App:** Embed within patient portals such as MyChart so Dr. receives alert and uploaded images, and patient is prompted to schedule an appointment if the classification is Infection. 
 
 ### For More Information:
 Please review my full analysis in our [Images](./Images), our [Presentation](capstone_project_7.28.pdf)   
 and our [Streamlit Code](./Streamlit.py). 
 
-For any additional questions, please contact Kevin McDonough
+For any additional questions, please contact me here:
 
-Kevin: 
 Email: kpmcdonough@gmail.com
 Github: https://github.com/KPMcDonough49
 Linkedin: https://www.linkedin.com/in/kevin-mcdonough-01466a178/
