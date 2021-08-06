@@ -63,6 +63,10 @@ I then used LIME (Local Interpretable Model-agnostic Explanations) to identify t
 
 This shows that the model is identifying the correct area within in the image and provides confidence that it is performing correctly. 
 
+### Web App
+
+I built a web app hosted on Streamlit sharing which houses the model. Unfortunately the model I used was too large to upload to Github, so this is a slimmed down version of the model with a bit less accuracy. The repository for the app can be found [Here](https://github.com/KPMcDonough49/streamlit_share). The link to the web app can be found here: [Web App](https://share.streamlit.io/kpmcdonough49/streamlit_share/main/app.py)
+
 
 ### Conclusions 
 
@@ -79,7 +83,7 @@ A CNN can be a valuable tool used in infection detection. With a small dataset, 
 **Launch App** Embed within patient portals such as MyChart so Dr. receives alert and uploaded images. 
 
 ### For More Information:
-Please review our full analysis in our [Images](./Images), our [Presentation](capstone_project_7.28.pdf)   
+Please review my full analysis in our [Images](./Images), our [Presentation](capstone_project_7.28.pdf)   
 and our [Streamlit Code](./Streamlit.py). 
 
 For any additional questions, please contact Kevin McDonough
