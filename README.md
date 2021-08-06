@@ -83,7 +83,7 @@ A CNN can be a valuable tool used in infection detection. With a small dataset, 
 **Launch App:** Embed within patient portals such as MyChart so Dr. receives alert and uploaded images, and patient is prompted to schedule an appointment if the classification is Infection. 
 
 ### For More Information:
-Please review my full analysis in our [Images](./Images), our [Presentation](capstone_project_7.28.pdf)   
+Please review my full analysis in our [Images](./Images), our [Presentation](capstone_project.pdf)   
 and our [Streamlit Code](./Streamlit.py). 
 
 For any additional questions, please contact me here:
